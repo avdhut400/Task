@@ -13,25 +13,20 @@ connectDB();
 
 const app = express();
 
-// Body parser
+
 app.use(express.json());
 
 // Cookie parser
 app.use(cookieParser());
 
 // CORS configuration (for frontend with cookies)
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL,
-//     credentials: true
-//   })
-// );
 app.use(
   cors({
-    origin: true,
+    origin: process.env.CLIENT_URL,
     credentials: true
   })
 );
+
 
 
 app.get("/", (req, res) => {
